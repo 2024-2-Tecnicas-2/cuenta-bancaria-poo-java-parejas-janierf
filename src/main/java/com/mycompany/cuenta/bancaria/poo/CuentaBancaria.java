@@ -1,6 +1,6 @@
 package com.mycompany.cuenta.bancaria.poo;
 
-import java.util.Scanner;
+
 
 public class CuentaBancaria {
 
@@ -8,8 +8,6 @@ public class CuentaBancaria {
     private String numeroCuenta;
     private double saldo;
     private double tipoInteres;
-
-    Scanner lector = new Scanner(System.in);
 
     public CuentaBancaria(String Titular, String numeroCuenta, double saldo) {
         this.Titular = Titular;
@@ -35,9 +33,8 @@ public class CuentaBancaria {
     }
 
     public void ingresar(double cantidad) {
-        System.out.println("Ingrese una cantidad a consignar");
-        cantidad = lector.nextInt();
         double Incremento = saldo + cantidad;
+        saldo = Incremento;
         System.out.println("Su saldo actual es: " + Incremento);
 
     }
@@ -50,11 +47,10 @@ public class CuentaBancaria {
         } else {
             System.out.println("No puede retirar mas de la cantidad que tiene en la cuenta");
         }
-         
-        System.out.println("Ingrese una cantidad a retirar");
-        cantidad = lector.nextInt();
+        
         double decremento = saldo - cantidad;
-        System.out.println("Saldo queda en: "+ decremento);
+        saldo = decremento;
+        System.out.println("Saldo queda en: "+ saldo);
         
     }
       public void CalcularInteres(){
@@ -64,7 +60,7 @@ public class CuentaBancaria {
               double SaldoConInteres = saldo + (saldo * tipoInteres / 100);
               System.out.println("Su saldo con interes aplicado es de:" + SaldoConInteres);
           } else {
-              
+              System.out.println("ERROR¡ No puede colocar interes menores de 0");
           }
           
           

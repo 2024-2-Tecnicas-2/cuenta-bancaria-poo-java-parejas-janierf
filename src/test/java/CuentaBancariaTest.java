@@ -1,12 +1,22 @@
 
+import com.mycompany.cuenta.bancaria.poo.CuentaBancaria;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+
+
 public class CuentaBancariaTest {
     // TODO Adiciona tus pruebas unitarias aquí.
     // Los métodos deben estar anotados con la anotación @Test. Por ejemplo:
     //
-    // @Test
-    // public void miPrueba() {
-    //      double valorEsperado = 10;
-    //      double valorActual = Calculadora.calcular(7, 3, '+');
-    //      assertEquals(valorEsperado, valorActual);
-    // }
+
+    @Test
+    public void testRetirar() {
+        double saldoEsperado = 20000; 
+        CuentaBancaria cuenta1 = new CuentaBancaria("Janier", "34", 30000);
+        cuenta1.retirar(10000); 
+        double saldoActual = cuenta1.getSaldo(); 
+        assertEquals(saldoEsperado, saldoActual, 0); 
+    }
 }
+
+
