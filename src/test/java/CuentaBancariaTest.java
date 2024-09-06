@@ -17,6 +17,15 @@ public class CuentaBancariaTest {
         double saldoActual = cuenta1.getSaldo(); 
         assertEquals(saldoEsperado, saldoActual, 0); 
     }
+
+
+
+@Test
+    public void testIngresar() {
+        double saldoEsperado = 50000; 
+        CuentaBancaria cuenta2 = new CuentaBancaria("Farid", "23", 30000);
+        cuenta2.ingresar(20000);
+        double saldoActual = cuenta2.getSaldo(); 
+        assertEquals(saldoEsperado, saldoActual, 0); 
+    }
 }
-
-
